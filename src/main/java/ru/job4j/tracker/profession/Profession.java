@@ -23,4 +23,5 @@ public class Profession {
     public LocalDateTime getBirthday() {
         return birthday;
     }
+
 }

@@ -6,10 +6,12 @@ public class Engineer extends Profession {
     private int cash;
 
     public int getExperience() {
+
         return experience;
     }
 
     public String getSpecialty() {
+
         return specialty;
     }
 
