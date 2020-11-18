@@ -5,11 +5,8 @@ import java.util.Scanner;
 public class Matches {
 
     public static boolean check(int check) {
-        int[] array = {1, 2, 3};
-        for (int i = 0; i < array.length; i++) {
-            if (check == array[i]) {
+            if ((check > 0) && (check < 4)) {
                 return true;
-            }
         }
         return false;
     }
