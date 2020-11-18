@@ -84,6 +84,9 @@ public class StartUI {
                     break;
                 case 6 :
                 run = false;
+                default:
+                    System.out.println("Нет такого пункта меню");
+                    break;
             }
         }
     }
