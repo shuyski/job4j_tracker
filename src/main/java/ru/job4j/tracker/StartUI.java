@@ -38,7 +38,6 @@ public class StartUI {
                         System.out.println();
                         }
                     else {
-                        tracker.replace(id, item);
                         System.out.println(item);
                         System.out.println();
                     }
@@ -51,7 +50,6 @@ public class StartUI {
                         System.out.println();
                     }
                     else {
-                        tracker.delete(id);
                         System.out.println("Зявка с номером " + id + " успешно удалена");
                         System.out.println();
                     }
@@ -78,7 +76,9 @@ public class StartUI {
                         System.out.println();
                     }
                     else {
-                        System.out.println(Arrays.toString(names));
+                        for (int i = 0; i < names.length; i++) {
+                            System.out.println(names[i]);
+                        }
                         System.out.println();
                     }
                     break;
