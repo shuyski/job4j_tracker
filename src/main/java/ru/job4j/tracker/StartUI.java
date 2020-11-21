@@ -6,7 +6,7 @@ public class StartUI {
     public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ====");
         String name = input.askStr("Enter name: ");
-        Item item = new Item(23, name);
+        Item item = new Item(name);
         tracker.add(item);
     }
 
@@ -68,8 +68,8 @@ public class StartUI {
             System.out.println();
         }
         else {
-            for (int i = 0; i < names.length; i++) {
-                System.out.println(names[i]);
+            for (Item item : names) {
+                System.out.println(item);
             }
             System.out.println();
         }
