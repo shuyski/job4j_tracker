@@ -18,11 +18,11 @@ public class ItemByNameAction implements UserAction {
         String name = input.askStr("Введите имя:");
         Item[] names = tracker.findByName(name);
         if (names.length == 0) {
-            System.out.println("Заявки с таким именем не найдены");
+            out.println("Заявки с таким именем не найдены");
         }
         else {
             for (Item item : names) {
-                System.out.println(item);
+                out.println(item);
             }
         }
         System.out.println();
