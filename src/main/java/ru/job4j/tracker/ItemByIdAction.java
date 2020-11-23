@@ -8,8 +8,7 @@ public class ItemByIdAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        int id;
-        id = input.askInt("Введите номер заявки:");
+        int id = input.askInt("Введите номер заявки:");
         Item item = tracker.findById(id);
         if (item == null) {
             System.out.println("Заявка с таким id не найдена");

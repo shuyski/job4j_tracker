@@ -8,16 +8,14 @@ public class DeleteAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        int id;
-        id = input.askInt("Введите номер заявки на удаление:");
+        int id = input.askInt("Введите номер заявки на удаление:");
         if (!tracker.delete(id)) {
             System.out.println("Номер заявки не найден");
-            System.out.println();
         }
         else {
             System.out.println("Зявка с номером " + id + " успешно удалена");
-            System.out.println();
         }
+        System.out.println();
         return true;
     }
 }
