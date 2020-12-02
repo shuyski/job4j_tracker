@@ -21,6 +21,22 @@ public class TrackerSingleStaticFinalField {
         return item;
     }
 
+    private int indexOf(int id) {
+        int rsl = -1;
+        for (int index = 0; index < size; index++) {
+            if (items[index].getId() == id) {
+                rsl = index;
+                break;
+            }
+        }
+        return rsl;
+    }
+
+    public Item findById(int id) {
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+
     public static void main(String[] args) {
         Item item = new Item("Name");
         System.out.println(getInstance().add(item));

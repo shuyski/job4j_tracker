@@ -10,6 +10,7 @@ public class TrackerSinglePrivateStaticFinalClassTest {
     public void add() {
         Item item = new Item(1,"Name");
         Item rsl = TrackerSinglePrivateStaticFinalClass.getInstance().add(item);
-        assertSame(item, rsl);
+        Item extend = TrackerSinglePrivateStaticFinalClass.getInstance().findById(item.getId());
+        assertSame(extend, rsl);
     }
 }

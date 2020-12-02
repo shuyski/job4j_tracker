@@ -10,7 +10,8 @@ public class TrackerSingleStaticFinalFieldTest {
     public void add() {
         Item item = new Item(1,"Name");
         Item rsl = TrackerSingleStaticFinalField.getInstance().add(item);
-        assertSame(item, rsl);
+        Item extend = TrackerSingleStaticFinalField.getInstance().findById(item.getId());
+        assertSame(extend, rsl);
     }
 
 }

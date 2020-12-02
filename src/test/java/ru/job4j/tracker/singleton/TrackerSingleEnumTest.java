@@ -10,6 +10,7 @@ public class TrackerSingleEnumTest {
     public void add() {
         Item item = new Item(1,"Name");
         Item rsl = TrackerSingleEnum.INSTANCE.add(item);
-        assertSame(item, rsl);
+        Item extend = TrackerSingleEnum.INSTANCE.findById(item.getId());
+        assertSame(extend, rsl);
     }
 }
