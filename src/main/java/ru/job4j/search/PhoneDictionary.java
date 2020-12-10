@@ -14,7 +14,7 @@ public class PhoneDictionary {
         for (Person list : persons) {
             if ((list.getName().contains(key)) || (list.getSurname().contains(key))
             || (list.getPhone().contains(key)) || (list.getAddress().contains(key))) {
-                result = persons;
+                result.add(list);
                 return result;
             }
         }
