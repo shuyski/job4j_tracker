@@ -15,7 +15,6 @@ public class PhoneDictionary {
             if ((list.getName().contains(key)) || (list.getSurname().contains(key))
             || (list.getPhone().contains(key)) || (list.getAddress().contains(key))) {
                 result.add(list);
-                return result;
             }
         }
         return result;
