@@ -13,7 +13,7 @@ public class TrackerTest {
         Item item = new Item();
         item.setName("test1");
         tracker.add(item);
-        Item result = tracker.findById(item.getId());
+        Item result = (Item) tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
     }
 

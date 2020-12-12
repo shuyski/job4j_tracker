@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+
 public class ItemByNameAction implements UserAction {
     private final Output out;
 
@@ -16,8 +18,8 @@ public class ItemByNameAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         out.println("===== Find items by name =====");
         String name = input.askStr("Введите имя:");
-        Item[] names = tracker.findByName(name);
-        if (names.length == 0) {
+        ArrayList<Item> names = tracker.findByName(name);
+        if (names.size() == 0) {
             out.println("Заявки с таким именем не найдены");
         }
         else {
