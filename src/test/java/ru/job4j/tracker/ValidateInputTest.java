@@ -2,7 +2,6 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 import java.util.ArrayList;
-import java.util.Set;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -12,7 +11,7 @@ public class ValidateInputTest {
     public void whenInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new ArrayList<>(Set.of("one", "1"))
+                new String[] {"one", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
@@ -23,11 +22,11 @@ public class ValidateInputTest {
     public void whenInvalidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new ArrayList<>(Set.of("qwe", "0"))
+                new String[]{"qwe", "0"}
         );
         ValidateInput input = new ValidateInput(out, in);
         Tracker tracker = new Tracker();
-        ArrayList<UserAction> actions = new ArrayList<UserAction>();
+        ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ExitAction());
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(
@@ -41,11 +40,11 @@ public class ValidateInputTest {
     public void whenNoInvalidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new ArrayList<String>(Set.of("0"))
+                new String[] {"0"}
         );
         ValidateInput input = new ValidateInput(out, in);
         Tracker tracker = new Tracker();
-        ArrayList<UserAction> actions = new ArrayList<UserAction>();
+        ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ExitAction());
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(

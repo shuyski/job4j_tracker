@@ -2,25 +2,24 @@ package ru.job4j.tracker;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Tracker {
-    private ArrayList<Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
-        items.add(items.size(), item);
+        items.add(item);
         return item;
     }
 
-    public ArrayList<Item> findAll() {
-
-        return (ArrayList<Item>) items.clone();
+    public List<Item> findAll() {
+        return items;
     }
 
-    public ArrayList<Item> findByName(String key) {
+    public List<Item> findByName(String key) {
         ArrayList<Item> names = new ArrayList<>();
         for (Item name : items) {
             if (name.getName().contains(key)) {
@@ -59,7 +58,13 @@ public class Tracker {
     public boolean delete(int id) {
         int index = indexOf(id);
         boolean rsl = index != -1;
-        items.remove(index);
+        if (rsl) {
+           for (int i = id; i < items.size(); i++) {
+                items.get(i).setId(i);
+           }
+            items.remove(index);
+            ids--;
+        }
         return rsl;
     }
 }
