@@ -9,16 +9,17 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        if (!users.containsKey(user.getPassport())) {
-        users.put(user, new ArrayList<Account>());
-        }
+        users.putIfAbsent(user, new ArrayList<Account>());
     }
 
     public void addAccount(String passport, Account account) {
+        int index = -1;
         User user = findByPassport(passport);
-        if (!(findByPassport(passport) == null)) {
-            if (!(users.containsKey(account.getRequisite()))) {
-            users.put(user, (List<Account>) account);
+        if (findByPassport(passport) != null) {
+            List<Account> accounts = users.get(user);
+            index = accounts.indexOf(account);
+            if (index == -1) {
+            users.get(user).add(account);
             }
         }
     }
@@ -34,18 +35,30 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-        List<Account> accounts = users.get(user);
-        for (Account us : accounts) {
-            if (us.getRequisite().equals(requisite)) {
-                return us;
-            }
+        if (user != null) {
+        List<Account> account = users.get(user);
+        int index = account.indexOf(new Account(requisite, -1));
+                return account.get(index);
         }
         return null;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
-        boolean rsl = false;
-        return rsl;
+        User userOne = findByPassport(srcPassport);
+        User userTwo = findByPassport(destPassport);
+        Account accountOne = findByRequisite(userOne.getPassport(), srcRequisite);
+        Account accountsTwo = findByRequisite(userTwo.getPassport(), destRequisite);
+        if (!(userOne.equals(null))
+                && !(userTwo.equals(null))
+                && !(accountOne.equals(null))
+                && !(accountsTwo.equals(null))
+                && (accountOne.getBalance() >= amount))
+        {
+        accountsTwo.setBalance(accountsTwo.getBalance() + amount);
+        accountOne.setBalance(accountOne.getBalance() - amount);
+        return true;
+        }
+        return false;
     }
 }
