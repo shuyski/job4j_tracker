@@ -13,13 +13,11 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        int index = -1;
         User user = findByPassport(passport);
         if (findByPassport(passport) != null) {
             List<Account> accounts = users.get(user);
-            index = accounts.indexOf(account);
-            if (index == -1) {
-            users.get(user).add(account);
+            if (!accounts.contains(account)) {
+                users.get(user).add(account);
             }
         }
     }
@@ -36,23 +34,20 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
-        List<Account> account = users.get(user);
-        int index = account.indexOf(new Account(requisite, -1));
-                return account.get(index);
+            for (Account account : users.get(user)) {
+                if (account.getRequisite().contains(requisite)) {
+                return account;
+                }
+            }
         }
         return null;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
-        User userOne = findByPassport(srcPassport);
-        User userTwo = findByPassport(destPassport);
-        Account accountOne = findByRequisite(userOne.getPassport(), srcRequisite);
-        Account accountsTwo = findByRequisite(userTwo.getPassport(), destRequisite);
-        if (!(userOne.equals(null))
-                && !(userTwo.equals(null))
-                && !(accountOne.equals(null))
-                && !(accountsTwo.equals(null))
+        Account accountOne = findByRequisite(srcPassport, srcRequisite);
+        Account accountsTwo = findByRequisite(destPassport, destRequisite);
+        if ((accountOne != null) && (accountsTwo != null)
                 && (accountOne.getBalance() >= amount))
         {
         accountsTwo.setBalance(accountsTwo.getBalance() + amount);
