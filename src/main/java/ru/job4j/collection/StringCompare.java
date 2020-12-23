@@ -14,7 +14,7 @@ public class StringCompare implements Comparator<String> {
                     return rsl;
                 }
             }
-            return left.length() - right.length();
+            return len;
         }
         for (int i = 0; i < right.length(); i++) {
             rsl = Character.compare(left.charAt(i), right.charAt(i));
@@ -22,6 +22,6 @@ public class StringCompare implements Comparator<String> {
                 return rsl;
             }
         }
-        return right.length() - left.length();
+        return len;
     }
 }
