@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class TrackerSingleStaticFiledTest {
 
     @Test
-    public void Single() {
+    public void single() {
         TrackerSingleStaticFiled first = TrackerSingleStaticFiled.getInstance();
         TrackerSingleStaticFiled second = TrackerSingleStaticFiled.getInstance();
         assertSame(first, second);

@@ -10,6 +10,6 @@ public class FactTest {
     @Test (expected = IllegalArgumentException.class)
     public void calc() {
         Fact qw = new Fact();
-        int n = qw.calc(- 1);
+        int n = qw.calc(-1);
     }
 }

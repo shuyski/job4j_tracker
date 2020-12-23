@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 public class BankService {
-    private Map<User, List<Account>> users = new HashMap<>();
+    private final Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        users.putIfAbsent(user, new ArrayList<Account>());
+        users.putIfAbsent(user, new ArrayList<>());
     }
 
     public void addAccount(String passport, Account account) {
@@ -48,8 +48,7 @@ public class BankService {
         Account accountOne = findByRequisite(srcPassport, srcRequisite);
         Account accountsTwo = findByRequisite(destPassport, destRequisite);
         if ((accountOne != null) && (accountsTwo != null)
-                && (accountOne.getBalance() >= amount))
-        {
+                && (accountOne.getBalance() >= amount)) {
         accountsTwo.setBalance(accountsTwo.getBalance() + amount);
         accountOne.setBalance(accountOne.getBalance() - amount);
         return true;

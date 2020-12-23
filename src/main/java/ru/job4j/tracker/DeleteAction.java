@@ -17,8 +17,7 @@ public class DeleteAction implements UserAction {
         int id = input.askInt("Введите номер заявки на удаление:");
         if (!tracker.delete(id)) {
             out.println("Номер заявки не найден");
-        }
-        else {
+        } else {
             out.println("Зявка с номером " + id + " успешно удалена");
         }
         System.out.println();

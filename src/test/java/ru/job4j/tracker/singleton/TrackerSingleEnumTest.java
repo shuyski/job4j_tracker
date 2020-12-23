@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class TrackerSingleEnumTest {
 
     @Test
-    public void Single() {
+    public void single() {
         TrackerSingleEnum first = TrackerSingleEnum.INSTANCE;
         TrackerSingleEnum second = TrackerSingleEnum.INSTANCE;
         assertSame(first, second);

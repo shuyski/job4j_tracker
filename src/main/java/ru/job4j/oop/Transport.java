@@ -1,6 +1,5 @@
 package ru.job4j.oop;
 
-
 public class Transport {
     public static void main(String[] args) {
         Vehicle air = new Air();

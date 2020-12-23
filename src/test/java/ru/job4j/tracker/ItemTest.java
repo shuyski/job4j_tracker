@@ -24,7 +24,6 @@ public class ItemTest {
         assertThat(item, is(expected));
     }
 
-
     @Test
     public void comparator() {
         List<Item> item = Arrays.asList(

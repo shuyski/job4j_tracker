@@ -12,8 +12,6 @@ public class Surgeon extends Doctor {
     public int getNumoperofheart() {
         return numoperofheart;
     }
-
-
 }
 
 

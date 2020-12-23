@@ -9,13 +9,13 @@ public class MaxTest {
 
     @Test
     public void maxFour() {
-        int rsl = Max.max(1,4,3,2);
+        int rsl = Max.max(1, 4, 3, 2);
         assertThat(rsl, is(4));
     }
 
     @Test
     public void maxThree() {
-        int rsl = Max.max(30,20,10);
+        int rsl = Max.max(30, 20, 10);
         assertThat(rsl, is(30));
     }
 

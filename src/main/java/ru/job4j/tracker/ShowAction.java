@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 import java.util.List;
 
-public class ShowAction implements UserAction{
+public class ShowAction implements UserAction {
     private final Output out;
 
     public ShowAction(Output out) {
@@ -18,7 +18,9 @@ public class ShowAction implements UserAction{
     public boolean execute(Input input, Tracker tracker) {
         out.println("===== All items =====");
         List<Item> names = tracker.findAll();
-        for (Object value : names) out.println(value);
+        for (Object value : names) {
+            out.println(value);
+        }
         System.out.println();
         return true;
     }

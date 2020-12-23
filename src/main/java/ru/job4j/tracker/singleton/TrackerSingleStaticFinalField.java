@@ -3,7 +3,8 @@ package ru.job4j.tracker.singleton;
 import ru.job4j.tracker.Item;
 
 public class TrackerSingleStaticFinalField {
-    private static final TrackerSingleStaticFinalField INSTANCE = new TrackerSingleStaticFinalField();
+    private static final TrackerSingleStaticFinalField INSTANCE =
+            new TrackerSingleStaticFinalField();
     private final Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;

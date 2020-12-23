@@ -20,8 +20,7 @@ public class ReplaceAction implements UserAction {
         Item item = new Item(id, nov);
         if (!tracker.replace(id, item)) {
             out.println("Номер заявки не найден");
-        }
-        else {
+        } else {
             out.println(item);
         }
         System.out.println();

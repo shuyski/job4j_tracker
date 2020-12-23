@@ -10,7 +10,8 @@ public class College {
         student.setGroup(104);
         student.setDate("01-09-2020 ");
         System.out.println(student.getFio()
-                +"группа: " + student.getGroup() + ","
+                + "группа: " + student.getGroup()
+                + ","
                 + " Дата зачисления: " + student.getDate()
         );
     }

@@ -8,7 +8,6 @@ public class TrackerSingleStaticFiled {
     private int ids = 1;
     private int size = 0;
 
-
     private TrackerSingleStaticFiled() {
     }
 
@@ -40,7 +39,6 @@ public class TrackerSingleStaticFiled {
         int index = indexOf(id);
         return index != -1 ? items[index] : null;
     }
-
 
     public static void main(String[] args) {
         Item item = new Item("Name");

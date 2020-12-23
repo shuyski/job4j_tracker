@@ -16,7 +16,5 @@ public class Doctor extends Profession {
     public int getCash() {
         return cash;
     }
-
-
 }
 

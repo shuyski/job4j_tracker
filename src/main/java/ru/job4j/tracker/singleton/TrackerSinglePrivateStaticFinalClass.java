@@ -8,7 +8,6 @@ public class TrackerSinglePrivateStaticFinalClass {
     private int ids = 1;
     private int size = 0;
 
-
     public static TrackerSinglePrivateStaticFinalClass getInstance() {
         return Holder.INSTANCE;
     }
@@ -36,7 +35,8 @@ public class TrackerSinglePrivateStaticFinalClass {
     }
 
     private static final class Holder {
-        private static final TrackerSinglePrivateStaticFinalClass INSTANCE = new TrackerSinglePrivateStaticFinalClass();
+        private static final TrackerSinglePrivateStaticFinalClass INSTANCE =
+                new TrackerSinglePrivateStaticFinalClass();
     }
 
     public static void main(String[] args) {
