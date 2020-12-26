@@ -13,7 +13,8 @@ import java.util.Map;
 
 public class BankService {
     /**
-     * Хранение информации о пользователе и его банковских счетах осуществляется в коллекции типа Map
+     * Хранение информации о пользователе и его банковских счетах
+     * осуществляется в коллекции типа Map
      */
     private final Map<User, List<Account>> users = new HashMap<>();
 
@@ -27,8 +28,10 @@ public class BankService {
 
     /**
      * Метод добавляет новый счет к пользователю
-     * @param passport пользователя находим по паспорту используя метод findByPassport
-     * @param account параметр содержит аккаунт пользователя, который необходимо добавить, если его ещё не существует
+     * @param passport пользователя находим по паспорту и
+     *                 спользуя метод findByPassport
+     * @param account параметр содержит аккаунт пользователя, который необходимо
+     *                добавить, если его ещё не существует
      */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
@@ -74,12 +77,17 @@ public class BankService {
 
     /**
      * Метод для перечисления денег с одного счёта на другой счёт
-     * @param srcPassport пасспорт пользователя с которого осуществляется перевод средств
-     * @param srcRequisite номер банковского счёта пользователя с которого осуществляется перевод средств
-     * @param destPassport пасспорт пользователя на который осуществляется перевод средств
-     * @param destRequisite номер банковского счёта пользователя на который осуществляется перевод средств
+     * @param srcPassport пасспорт пользователя
+     *                    с которого осуществляется перевод средств
+     * @param srcRequisite номер банковского счёта пользователя
+     *                     с которого осуществляется перевод средств
+     * @param destPassport пасспорт пользователя
+     *                     на который осуществляется перевод средств
+     * @param destRequisite номер банковского счёта пользователя
+     *                      на который осуществляется перевод средств
      * @param amount сумма, которую необходимо перевести
-     * @return возвращает true. Если счёт не найден или не хватает денег на счёте srcAccount, то возвращает false
+     * @return возвращает true. Если счёт не найден или не хватает денег
+     * на счёте srcAccount, то возвращает false
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
