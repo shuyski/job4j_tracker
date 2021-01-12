@@ -1,23 +1,10 @@
 package ru.job4j.lambda;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class AttachmentSort {
-
-    private static List<Attachment> filter(List<Attachment> list, Predicate<Attachment> predicate) {
-        List<Attachment> rsl = new ArrayList<>();
-        for (Attachment att : list) {
-            if (predicate.test(att)) {
-                rsl.add(att);
-            }
-        }
-        return rsl;
-    }
-
     public static void main(String[] args) {
         List<Attachment> attachments = Arrays.asList(
                 new Attachment("image 1", 100),
