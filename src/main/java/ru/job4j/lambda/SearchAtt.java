@@ -7,23 +7,33 @@ import java.util.function.Predicate;
 public class SearchAtt {
 
     public static List<Attachment> filterSize(List<Attachment> list) {
-        List<Attachment> rsl = new ArrayList<>();
-        for (Attachment att : list) {
-            if (att.getSize() > 100) {
-                rsl.add(att);
+        Predicate<Attachment> predicate = new Predicate<Attachment>() {
+            @Override
+            public boolean test(Attachment attachment) {
+                for (Attachment atta : list) {
+                    if (atta.getSize() > 100) {
+                        return true;
+                    }
+                }
+                return false;
             }
-        }
-        return rsl;
+        };
+        return filter(list, predicate);
     }
 
     public static List<Attachment> filterName(List<Attachment> list) {
-        List<Attachment> rsl = new ArrayList<>();
-        for (Attachment att : list) {
-            if (att.getName().contains("bug")) {
-                rsl.add(att);
+        Predicate<Attachment> predicate = new Predicate<Attachment>() {
+            @Override
+            public boolean test(Attachment attachment) {
+                for (Attachment atta : list) {
+                    if (atta.getName().contains("bug")) {
+                        return true;
+                    }
+                }
+                return false;
             }
-        }
-        return rsl;
+        };
+        return filter(list, predicate);
     }
 
     private static List<Attachment> filter(List<Attachment> list, Predicate<Attachment> predicate) {
