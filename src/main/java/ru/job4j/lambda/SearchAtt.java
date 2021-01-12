@@ -10,12 +10,7 @@ public class SearchAtt {
         Predicate<Attachment> predicate = new Predicate<Attachment>() {
             @Override
             public boolean test(Attachment attachment) {
-                for (Attachment atta : list) {
-                    if (atta.getSize() > 100) {
-                        return true;
-                    }
-                }
-                return false;
+                return attachment.getSize() > 100;
             }
         };
         return filter(list, predicate);
@@ -25,12 +20,7 @@ public class SearchAtt {
         Predicate<Attachment> predicate = new Predicate<Attachment>() {
             @Override
             public boolean test(Attachment attachment) {
-                for (Attachment atta : list) {
-                    if (atta.getName().contains("bug")) {
-                        return true;
-                    }
-                }
-                return false;
+                return attachment.getName().contains("bug");
             }
         };
         return filter(list, predicate);
