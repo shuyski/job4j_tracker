@@ -1,8 +1,8 @@
 package ru.job4j.stream;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -14,10 +14,10 @@ public class School {
                 .collect(Collectors.toList());
     }
 
-    public Map<String, Integer> collMap(List<Student> students) {
+    public Map<String, Student> collMap(List<Student> students) {
         return students.stream()
                 .collect(Collectors
-                        .toMap(Student::getSurname, Student::getScore ));
+                        .toMap(Student::getSurname, Function.identity(), (o1, o2) -> o1));
     }
 
 }
