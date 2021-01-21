@@ -5,11 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Класс реализует работу банковского сервиса
- * @author Ruslan Shuyski
- * @version 1.0
- */
+
 
 public class BankService {
     /**
@@ -49,12 +45,11 @@ public class BankService {
      * @return возвращает пользователя, если он существует, если нет, то null
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                return user;
-            }
-        }
-        return null;
+        return users.keySet()
+                .stream()
+                .filter(u -> u.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -66,11 +61,11 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
-            for (Account account : users.get(user)) {
-                if (account.getRequisite().contains(requisite)) {
-                return account;
-                }
-            }
+                return users.get(user)
+                        .stream()
+                        .filter(u -> u.getRequisite().equals(requisite))
+                        .findFirst()
+                        .orElse(null);
         }
         return null;
     }
