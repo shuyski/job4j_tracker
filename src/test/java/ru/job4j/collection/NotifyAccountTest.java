@@ -1,8 +1,6 @@
 package ru.job4j.collection;
 
 import org.junit.Test;
-
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
@@ -13,12 +11,12 @@ public class NotifyAccountTest {
 
     @Test
     public void sent() {
-        List<Account> accounts = Arrays.asList(
+        List<Account> accounts = List.of(
                 new Account("123", "Petr Arsentev", "eDer3432f"),
                 new Account("142", "Petr Arsentev", "000001")
         );
         HashSet<Account> expect = new HashSet<>(
-                Arrays.asList(
+                List.of(
                         new Account("123", "Petr Arsentev", "eDer3432f"),
                         new Account("142", "Petr Arsentev", "000001")
                 )
@@ -28,13 +26,13 @@ public class NotifyAccountTest {
 
     @Test
     public void noSent() {
-        List<Account> accounts = Arrays.asList(
+        List<Account> accounts = List.of(
                 new Account("123", "Petr Arsentev", "eDer3432f"),
                 new Account("123", "Petr Arsentev", "000001"),
                 new Account("135", "Ryslan", "13174589")
         );
         HashSet<Account> expect = new HashSet<>(
-                Arrays.asList(
+                List.of(
                         new Account("123", "Petr Arsentev", "000001"),
                         new Account("135", "Ryslan", "13174589")
                 )
