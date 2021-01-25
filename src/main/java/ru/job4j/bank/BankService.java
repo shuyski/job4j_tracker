@@ -26,7 +26,7 @@ public class BankService {
      */
     public void addAccount(String passport, Account account) {
         Optional<User> user = findByPassport(passport);
-        if (findByPassport(passport).isPresent()) {
+        if (user.isPresent()) {
             List<Account> accounts = users.get(user.get());
             if (!accounts.contains(account)) {
                 users.get(user.get()).add(account);
@@ -60,7 +60,7 @@ public class BankService {
         Optional<User> user = findByPassport(passport);
         Optional<Account> rsl = Optional.empty();
         if (user.isPresent()) {
-            for (Account account : users.get(user)) {
+            for (Account account : users.get(user.get())) {
                 if (account.getRequisite().contains(requisite)) {
                     rsl = Optional.of(account);
                     break;
