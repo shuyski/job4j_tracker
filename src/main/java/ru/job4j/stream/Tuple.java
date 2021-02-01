@@ -23,4 +23,20 @@ public class Tuple {
     public int hashCode() {
         return Objects.hash(name, score);
     }
+
+    @Override
+    public String toString() {
+        return "Tuple{" +
+                "name='" + name + '\'' +
+                ", score=" + score +
+                '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getScore() {
+        return score;
+    }
 }
