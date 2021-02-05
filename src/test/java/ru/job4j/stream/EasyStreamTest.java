@@ -17,7 +17,6 @@ public class EasyStreamTest {
     public void whenFilledSource() {
         var rsl = EasyStream.of(List.of(1, 2, 3))
                 .collect();
-        System.out.println(EasyStream.of(List.of(1, 2, 3)));
         assertThat(rsl, is(List.of(1, 2, 3)));
     }
 

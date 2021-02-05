@@ -6,23 +6,35 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class EasyStream {
+    private List<Integer> list;
+
+    public EasyStream(List<Integer> list) {
+        this.list = list;
+    }
+
     public static EasyStream of(List<Integer> source) {
-        return new EasyStream();
+        return new EasyStream(source);
     }
 
     public EasyStream map(Function<Integer, Integer> fun) {
-        fun.apply(2);
-        return new EasyStream();
+        List<Integer> listMap = new ArrayList<>();
+        for (Integer in : list) {
+            listMap.add(fun.apply(in));
+        }
+        return new EasyStream(listMap);
     }
 
     public EasyStream filter(Predicate<Integer> fun) {
-        if (fun.test(2)) {
-            return new EasyStream();
+        List<Integer> listMap = new ArrayList<>();
+        for (Integer in : list) {
+            if (fun.test(in)) {
+                listMap.add(in);
+            }
         }
-        throw new UnsupportedOperationException();
+        return new EasyStream(listMap);
     }
 
     public List<Integer> collect() {
-        return List.of(1, 2, 3);
+        return list;
     }
 }
