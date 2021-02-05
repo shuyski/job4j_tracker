@@ -16,6 +16,4 @@ public class PhoneDictionaryTest {
         var persons = phones.find("Petr");
         assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
-
-
 }

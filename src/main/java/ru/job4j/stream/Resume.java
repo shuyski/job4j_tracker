@@ -11,15 +11,15 @@ public class Resume {
 
     @Override
     public String toString() {
-        return "Resume{" +
-                "name='" + name + '\'' +
-                ", education=" + education +
-                ", profession='" + profession + '\'' +
-                ", experience=" + experience +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", priority=" + priority +
-                '}';
+        return "Resume{"
+                + "name='" + name + '\''
+                + ", education=" + education
+                + ", profession='" + profession + '\''
+                + ", experience=" + experience
+                + ", phone='" + phone + '\''
+                + ", address='" + address + '\''
+                + ", priority=" + priority
+                + '}';
     }
 
     static class Builder {
